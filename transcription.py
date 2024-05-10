@@ -3,7 +3,7 @@ import streamlit as st
 import speech_recognition as sr
 import google.generativeai as genai
 from pathlib import Path
-import toml
+#import toml
 
 
 #config = toml.load("secrets.toml")
@@ -12,7 +12,7 @@ import toml
 # Configuração da API do Google (Gemini)
 genai.configure(api_key=os.getenv("google"))
 #genai.configure(api_key=google_api_key)
-google_api_key = config["api_keys"]["google"]
+#google_api_key = config["api_keys"]["google"]
 
 model = genai.GenerativeModel('gemini-pro')
 
