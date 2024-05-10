@@ -6,12 +6,12 @@ from pathlib import Path
 import toml
 
 
-config = toml.load("secrets.toml")
-google_api_key = config["api_keys"]["google"]
+#config = toml.load("secrets.toml")
+#google_api_key = config["api_keys"]["google"]
 
 # Configuração da API do Google (Gemini)
-#genai.configure(api_key=os.getenv("GOOGLE_GEMINI_KEY"))
-genai.configure(api_key=google_api_key)
+genai.configure(api_key=os.getenv("google"))
+#genai.configure(api_key=google_api_key)
 google_api_key = config["api_keys"]["google"]
 
 model = genai.GenerativeModel('gemini-pro')
