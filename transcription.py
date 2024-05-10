@@ -8,9 +8,11 @@ from pathlib import Path
 
 #config = toml.load("secrets.toml")
 #google_api_key = config["api_keys"]["google"]
-
+api_key1 = st.secrets["google"]
 # Configuração da API do Google (Gemini)
 genai.configure(api_key=os.getenv("google"))
+genai.configure(api_key=api_key1 )
+#toml
 #genai.configure(api_key=google_api_key)
 #google_api_key = config["api_keys"]["google"]
 
