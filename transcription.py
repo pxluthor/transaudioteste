@@ -3,6 +3,9 @@ import streamlit as st
 import speech_recognition as sr
 import google.generativeai as genai
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Configuração da API do Google (Gemini)
 genai.configure(api_key=os.getenv("GOOGLE_GEMINI_KEY"))
