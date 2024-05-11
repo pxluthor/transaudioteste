@@ -5,6 +5,16 @@ import google.generativeai as genai
 from pathlib import Path
 import toml
 
+
+# Carregar configurações do arquivo config.toml
+config = toml.load("config.toml")
+
+# Obter o valor de maxUploadSize do arquivo de configuração
+max_upload_size = config["server"]["maxUploadSize"]
+
+# Definir a configuração do Streamlit
+st.set_page_config(maxUploadSize=max_upload_size)
+
 #st.set_page_config(maxUploadSize = 400)
 #config = toml.load("secrets.toml")
 #google_api_key = config["api_keys"]["google"]
