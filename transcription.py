@@ -5,7 +5,7 @@ import google.generativeai as genai
 from pathlib import Path
 #import toml
 
-
+st.set_page_config(maxUpdateSize = 400 * 1024 * 1024)
 #config = toml.load("secrets.toml")
 #google_api_key = config["api_keys"]["google"]
 api_key1 = st.secrets["google"]
