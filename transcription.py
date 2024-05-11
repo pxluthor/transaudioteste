@@ -3,9 +3,9 @@ import streamlit as st
 import speech_recognition as sr
 import google.generativeai as genai
 from pathlib import Path
-#import toml
+import toml
 
-
+st.set_page_config(maxUploadSize = 400 * 1024 * 1024)
 #config = toml.load("secrets.toml")
 #google_api_key = config["api_keys"]["google"]
 api_key1 = st.secrets["google"]
