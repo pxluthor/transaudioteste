@@ -13,7 +13,15 @@ config = toml.load("config.toml")
 max_upload_size = config["server"]["maxUploadSize"]
 
 # Definir a configuração do Streamlit
-st.set_page_config(maxUploadSize=max_upload_size)
+st.set_page_config(
+    **{
+        "server": {
+            "maxUploadSize": max_upload_size
+        }
+    }
+)
+
+
 
 #st.set_page_config(maxUploadSize = 400)
 #config = toml.load("secrets.toml")
