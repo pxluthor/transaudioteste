@@ -7,9 +7,9 @@ import toml
 
 
 # Carregar configurações do arquivo config.toml
-config = toml.load("config.toml")
+#config = toml.load("config.toml")
 
-st.set_page_config(config_file = config.toml)
+st.set_page_config(config_file = 'config.toml')
 
 # Obter o valor de maxUploadSize do arquivo de configuração
 
