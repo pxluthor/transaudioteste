@@ -5,6 +5,7 @@ import google.generativeai as genai
 from pathlib import Path
 from pydub import AudioSegment
 import toml
+from ffprobe import FFProbe
 
 
 # Carregar configurações do arquivo config.toml
