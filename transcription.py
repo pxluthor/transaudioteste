@@ -12,9 +12,9 @@ import toml
 config = toml.load("config.toml")
 
 
-api_key1 = st.secrets["google"]
+api_key1 = st.secrets.api_key.google
 # Configuração da API do Google (Gemini)
-genai.configure(api_key=os.getenv("google"))
+#genai.configure(api_key=os.getenv("google"))
 genai.configure(api_key=api_key1 )
 
 
