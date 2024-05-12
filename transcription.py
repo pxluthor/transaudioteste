@@ -32,7 +32,7 @@ def transcrever_audio(arquivo_audio):
     except sr.RequestError as e:
         return f"Erro na transcrição do áudio: {e}"
 
-def transcrever_audio(arquivo_audio):
+def transcrever_audio2(arquivo_audio):
     try:
         r = sr.Recognizer()
 
