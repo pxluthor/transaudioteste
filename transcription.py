@@ -67,6 +67,7 @@ def main():
     # Entrada de áudio
         arquivo_carregado = st.file_uploader("Carregar arquivo de áudio (MP3 ou WAV)")
         if arquivo_carregado:
+            st.sidebar.audio(arquivo_carregado)
             texto_transcrito = transcrever_audio(arquivo_carregado)
             st.write("Texto transcrito:", texto_transcrito)
             st.success('Transcrição realizada')
