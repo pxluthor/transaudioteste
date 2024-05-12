@@ -9,22 +9,12 @@ import toml
 # Carregar configurações do arquivo config.toml
 config = toml.load("config.toml")
 
-#st.set_page_config(config_file = 'config.toml')
 
-# Obter o valor de maxUploadSize do arquivo de configuração
-
-
-
-#st.set_page_config(maxUploadSize = 400)
-#config = toml.load("secrets.toml")
-#google_api_key = config["api_keys"]["google"]
 api_key1 = st.secrets["google"]
 # Configuração da API do Google (Gemini)
 genai.configure(api_key=os.getenv("google"))
 genai.configure(api_key=api_key1 )
-#toml
-#genai.configure(api_key=google_api_key)
-#google_api_key = config["api_keys"]["google"]
+
 
 model = genai.GenerativeModel('gemini-pro')
 
