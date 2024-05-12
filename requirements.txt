@@ -145,3 +145,4 @@ watchdog==4.0.0
 wheel==0.43.0
 python-dotenv
 zipp==3.17.0
+ffprobe
