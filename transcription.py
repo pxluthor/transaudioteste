@@ -122,5 +122,5 @@ def exportar_texto():
     else:
         st.warning("Não há texto transcrito para exportar.")
 
-if __main__ == "__main__":
+if __name__ == "__main__":
     main()
