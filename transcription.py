@@ -36,10 +36,14 @@ def transcrever_audio2(arquivo_audio):
     try:
         r = sr.Recognizer()
 
-        # Verifica se o arquivo é MP3 e transcreve diretamente
+        # Verifica se o arquivo é MP3 e converte para WAV, se necessário
         if arquivo_audio.name.endswith(".mp3"):
-            with sr.AudioFile(arquivo_audio) as fonte:
+            audio = AudioSegment.from_file(arquivo_audio)
+            temp_wav = "temp.wav"
+            audio.export(temp_wav, format="wav")
+            with sr.AudioFile(temp_wav) as fonte:
                 audio = r.record(fonte)
+            os.remove(temp_wav)  # Remove o arquivo temporário após o uso
         else:
             with sr.AudioFile(arquivo_audio) as fonte:
                 audio = r.record(fonte)
@@ -50,6 +54,7 @@ def transcrever_audio2(arquivo_audio):
         return "Erro: Não foi possível entender o áudio."
     except sr.RequestError as e:
         return f"Erro na transcrição do áudio: {e}"
+
 
 
 # Função para converter o papel de parede
