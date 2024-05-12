@@ -3,10 +3,8 @@ import streamlit as st
 import speech_recognition as sr
 import google.generativeai as genai
 from pathlib import Path
-from pydub import AudioSegment
 import toml
 
-import audioread
 
 
 
@@ -35,36 +33,7 @@ def transcrever_audio(arquivo_audio):
     except sr.RequestError as e:
         return f"Erro na transcrição do áudio: {e}"
 
-def detect_audio_format(arquivo_audio):
-    """Detecta o formato do arquivo de áudio."""
-    with audioread.audio_open(arquivo_audio) as f:
-        return f.format
 
-def transcrever_audio2(arquivo_audio):
-    try:
-        r = sr.Recognizer()
-
-        # Detecta o formato do arquivo de áudio
-        formato_audio = detect_audio_format(arquivo_audio)
-
-        # Verifica se o arquivo é MP3 e converte para WAV, se necessário
-        if formato_audio == 'mp3':
-            audio = AudioSegment.from_file(arquivo_audio)
-            temp_wav = "temp.wav"
-            audio.export(temp_wav, format="wav")
-            with sr.AudioFile(temp_wav) as fonte:
-                audio = r.record(fonte)
-            os.remove(temp_wav)  # Remove o arquivo temporário após o uso
-        else:
-            with sr.AudioFile(arquivo_audio) as fonte:
-                audio = r.record(fonte)
-
-        texto = r.recognize_google(audio, language='pt-BR')  # Definindo o idioma para português do Brasil
-        return texto
-    except sr.UnknownValueError:
-        return "Erro: Não foi possível entender o áudio."
-    except sr.RequestError as e:
-        return f"Erro na transcrição do áudio: {e}"
 
 # Função para converter o papel de parede
 def role_to_streamlit(role):
@@ -103,7 +72,7 @@ def main():
         arquivo_carregado = st.file_uploader("Carregar arquivo de áudio (MP3 ou WAV)")
         if arquivo_carregado:
             st.sidebar.audio(arquivo_carregado)
-            texto_transcrito = transcrever_audio2(arquivo_carregado)
+            texto_transcrito = transcrever_audio(arquivo_carregado)
             st.write("Texto transcrito:", texto_transcrito)
             st.success('Transcrição realizada')
 
