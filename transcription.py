@@ -5,7 +5,8 @@ import google.generativeai as genai
 from pathlib import Path
 from pydub import AudioSegment
 import toml
-from pydub.utils import mediainfo
+
+import audioread
 
 
 
