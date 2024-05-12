@@ -5,7 +5,8 @@ import google.generativeai as genai
 from pathlib import Path
 from pydub import AudioSegment
 import toml
-from ffprobe import FFProbe
+from pydub.utils import mediainfo
+
 
 
 # Carregar configurações do arquivo config.toml
@@ -55,7 +56,6 @@ def transcrever_audio2(arquivo_audio):
         return "Erro: Não foi possível entender o áudio."
     except sr.RequestError as e:
         return f"Erro na transcrição do áudio: {e}"
-
 
 
 # Função para converter o papel de parede
