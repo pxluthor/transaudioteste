@@ -92,10 +92,10 @@ def main():
 
             if st.button("Fazer transcrição"):
                 
-                response = st.session_state.chat.send_message(resp.text)
+                #response = st.session_state.chat.send_message(resp.text)
                 with st.chat_message("assistente"):
                     st.success('Transcrição realizada')
-                    st.markdown(response.text)
+                    st.markdown(resp.text)
            
 
 # Função para limpar o chat
