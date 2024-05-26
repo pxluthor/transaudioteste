@@ -23,7 +23,7 @@ Faker==23.3.0
 favicon==0.7.0
 ffmpeg
 filelock==3.13.4
-
+streamlit-audiorec
 
 fonttools==4.49.0
 fsspec==2024.3.1
