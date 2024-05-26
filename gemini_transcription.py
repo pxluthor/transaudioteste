@@ -77,8 +77,9 @@ def main():
         # Entrada de texto
         if st.button('Fale comigo'):
             #for microfone in selected_microfones:
-            st_audiorec()
-            with sr.Microphone() as mic:
+            #st_audiorec()
+            sr.Microphone()
+            with st_audiorec() as mic:
                 rec.adjust_for_ambient_noise(mic)
                 st.markdown("Pode falar que eu vou gravar")
                 voz = rec.listen(mic)
