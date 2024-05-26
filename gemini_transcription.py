@@ -46,8 +46,8 @@ def role_to_streamlit(role):
     return "assistente" if role == "model" else role
 
 rec = sr.Recognizer()
-microfones = sr.Microphone().list_microphone_names()
-selected_microfones = st.multiselect("Selecione o(s) microfone(s)", microfones)
+#microfones = sr.Microphone().list_microphone_names()
+#selected_microfones = st.multiselect("Selecione o(s) microfone(s)", microfones)
 
 # Função principal
 def main():
@@ -75,24 +75,24 @@ def main():
     if opcao_entrada == "Texto":
         # Entrada de texto
         if st.button('Fale comigo'):
-            for microfone in selected_microfones:
-                with sr.Microphone(device_index=microfones.index(microfone)) as mic:
-                    rec.adjust_for_ambient_noise(mic)
-                    st.markdown("Pode falar que eu vou gravar")
-                    voz = rec.listen(mic)
-                    try:
-                        texto = rec.recognize_google(voz, language="pt-BR")
-                        prompt = texto
-                        resp = model.generate_content(prompt)
-                        st.chat_message("user").markdown(prompt)
-                        with st.chat_message("assistente"): #mostra o ícone do assistente na tela
-                            st.markdown(resp.text) # conteúdo da resposta
+            #for microfone in selected_microfones:
+            with sr.Microphone() as mic:
+                rec.adjust_for_ambient_noise(mic)
+                st.markdown("Pode falar que eu vou gravar")
+                voz = rec.listen(mic)
+                try:
+                    texto = rec.recognize_google(voz, language="pt-BR")
+                    prompt = texto
+                    resp = model.generate_content(prompt)
+                    st.chat_message("user").markdown(prompt)
+                    with st.chat_message("assistente"): #mostra o ícone do assistente na tela
+                        st.markdown(resp.text) # conteúdo da resposta
             
                         
-                    except sr.UnknownValueError:
-                        st.markdown("Não entendi o que você disse.")
-                    except sr.RequestError as e:
-                        st.markdown(f"Erro ao solicitar o reconhecimento de voz: {e}")
+                except sr.UnknownValueError:
+                    st.markdown("Não entendi o que você disse.")
+                except sr.RequestError as e:
+                    st.markdown(f"Erro ao solicitar o reconhecimento de voz: {e}")
 
         
         if prompt := st.chat_input("Como posso ajudar?",): # recebe um comando via chat_input e armazena no prompt.
