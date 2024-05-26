@@ -46,8 +46,8 @@ def role_to_streamlit(role):
     return "assistente" if role == "model" else role
 
 rec = sr.Recognizer()
-microfones = sr.Microphone().list_microphone_names()
-st.write(microfones)
+#microfones = sr.Microphone().list_microphone_names()
+#st.write(microfones)
 #selected_microfones = st.multiselect("Selecione o(s) microfone(s)", microfones)
 
 # Função principal
