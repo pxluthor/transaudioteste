@@ -46,6 +46,7 @@ def role_to_streamlit(role):
     return "assistente" if role == "model" else role
 
 rec = sr.Recognizer()
+wav_audio_data = st_audiorec()
 #microfones = sr.Microphone().list_microphone_names()
 #st.write(microfones)
 #selected_microfones = st.multiselect("Selecione o(s) microfone(s)", microfones)
@@ -77,9 +78,9 @@ def main():
         # Entrada de texto
         if st.button('Fale comigo'):
             #for microfone in selected_microfones:
-            #st_audiorec()
-            sr.Microphone()
-            with st_audiorec() as mic:
+            
+            
+            with sr.Microphone() as mic:
                 rec.adjust_for_ambient_noise(mic)
                 st.markdown("Pode falar que eu vou gravar")
                 voz = rec.listen(mic)
