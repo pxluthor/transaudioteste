@@ -5,9 +5,9 @@ import speech_recognition as sr
 import toml
 from pathlib import Path
 import pyaudio
-from dotenv import dotenv_load
 
-load_dotenv()
+
+
 
 config = toml.load("config.toml")
 
