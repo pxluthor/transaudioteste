@@ -102,7 +102,7 @@ def main():
 # Função para limpar o chat
 def limpar_chat():
     st.session_state.chat.history.clear()
-    os.remove("audio_temp.mp3")
+    #os.remove("audio_temp.mp3")
 
 
 
