@@ -5,6 +5,7 @@ import speech_recognition as sr
 import toml
 from pathlib import Path
 import pyaudio
+from st_audiorec import st_audiorec
 
 
 
