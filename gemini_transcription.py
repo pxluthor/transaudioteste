@@ -52,8 +52,7 @@ with st.sidebar:
   st.title("Gravação de Áudio")
   wav_audio_data = st_audiorec()
 
-# Exibe o áudio gravado
-st.sidebar.audio(wav_audio_data)
+
 
 
 
