@@ -47,7 +47,16 @@ def role_to_streamlit(role):
     return "assistente" if role == "model" else role
 
 rec = sr.Recognizer()
-wav_audio_data = st_audiorec()
+#wav_audio_data = st_audiorec()
+with st.sidebar:
+  st.title("Gravação de Áudio")
+  wav_audio_data = st_audiorec()
+
+# Exibe o áudio gravado
+st.sidebar.audio(wav_audio_data)
+
+
+
 #microfones = sr.Microphone().list_microphone_names()
 #st.write(microfones)
 #selected_microfones = st.multiselect("Selecione o(s) microfone(s)", microfones)
