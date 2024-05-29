@@ -51,6 +51,8 @@ rec = sr.Recognizer()
 with st.sidebar:
   st.title("Gravação de Áudio")
   wav_audio_data = st_audiorec()
+  
+  st.divider()
 
 
 
