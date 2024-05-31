@@ -127,7 +127,7 @@ def main():
             your_file = genai.upload_file("audio_temp.mp3")
             st.info("Audio carregado !")
             
-            prompt =''' você é um analista de relacionamento em um callcenter,
+            prompt =''' você é um analista de relacionamento em um callcenter da empresa Leste Telecom,
                         faça a transcrição fiel ao áudio, separando na apresesntando do resultado  as falas do cliente e atendente segundo o modelo de exemplo:
                         00:00 - Atendente: contexto da transcrição.
                         00:08 - Cliente: contexto da transcrição.
