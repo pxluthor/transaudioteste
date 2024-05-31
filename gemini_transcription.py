@@ -127,7 +127,24 @@ def main():
             your_file = genai.upload_file("audio_temp.mp3")
             st.info("Audio carregado !")
             
-            prompt ="faça a transcrição fiel ao áudio, separando por tempo"
+            prompt ='''faça a transcrição fiel ao áudio, segundo o modelo abaixo:
+                        00:00 - Atendente: Boa tarde.
+                        00:02 - Atendente: Eu poderia falar com
+                        00:03 - Atendente: o Sr. Telmo?
+                        00:08 - Cliente: Sou eu.
+                        Após a transcrição faça uma análise segundo o template abaixo:
+                        
+                        Análise da Transcrição:
+                        Pontos chave:
+                        Possíveis problemas:
+                        Sugestões:
+                        Conclusão: '''
+  
+
+
+
+
+
             
             resp = model.generate_content([prompt, your_file])
             
