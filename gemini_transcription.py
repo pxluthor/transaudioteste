@@ -6,7 +6,7 @@ import toml
 from pathlib import Path
 import pyaudio
 from st_audiorec import st_audiorec
-
+import streamlit.components.v1 as components
 
 
 
@@ -64,6 +64,7 @@ with st.sidebar:
 
 # Função principal
 def main():
+    components.iframe("https://viewer-production-e71b.up.railway.app/gera-o-de-leads-com-ia-mbexfgd", width: 100%, height=600)
     # Título
     st.title("💬 Chat - Transcription audio 🎙🔉")
 
