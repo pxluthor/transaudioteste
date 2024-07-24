@@ -77,7 +77,8 @@ prometheus_client==0.20.0
 proto-plus==1.23.0
 protobuf==4.25.3
 
-pyaudio @ git+https://people.csail.mit.edu/hubert/git/pyaudio.git
+#pyaudio @ git+https://people.csail.mit.edu/hubert/git/pyaudio.git
+pyaudio
 pyarrow==16.0.0
 pyasn1==0.5.1
 pyasn1-modules==0.3.0
