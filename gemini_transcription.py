@@ -64,7 +64,7 @@ with st.sidebar:
 
 # Função principal
 def main():
-    components.iframe("https://viewer-production-e71b.up.railway.app/b-o-t-lest-eaux-ai-dijigpa", height=600)
+    components.iframe("https://typebot_view.pxluthor.com.br/api/v1/typebots/meu-typebot-e9lpn27", height=600)
     # Título
     st.title("💬 Chat - Transcription audio 🎙🔉")
 
